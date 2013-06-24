@@ -106,6 +106,7 @@ module.exports = function(grunt) {
     if (!options.keepRunner && fs.statSync(options.outfile).isFile()) fs.unlink(options.outfile);
     if (!options.keepRunner) {
       jasmine.cleanTemp(cb);
+      process.kill(phantomjs);
     } else {
       cb();
     }
